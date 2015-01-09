@@ -1,0 +1,15 @@
+{if $smarty.request.gid eq ""}
+<li><a href="{seourl rewrite="group/`$smarty.request.urlkey`/`$answers[0].GID`" url="groups_home.php?urlkey=`$smarty.request.urlkey`&gid=`$answers[0].GID`"}">{translate item='global.group_home'}</a></li>
+<li><a href="{seourl rewrite="group/`$smarty.request.urlkey`/videos/`$answers[0].GID`" url="gvideos.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$answers[0].GID`"}">{translate item='global.videos'}</a></li>
+<li><a href="{seourl rewrite="group/`$smarty.request.urlkey`/members/`$answers[0].GID`" url="gmembers.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$answers[0].GID`"}">{translate item='global.group_members'}</a></li>
+{insert name=getfield assign=owner_id field='OID' table='group_own' qfield=GID qvalue=$answers[0].GID}{if $smarty.session.UID eq $owner_id and $gupload eq "owner_only"}|<a href="{seourl rewrite="group/add/video/`$smarty.request.urlkey`/`$answers[0].GID`" url="add_video.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$answers[0].GID`"}">{translate item='global.add_videos'}</a></li>{/if}
+{if $gupload ne "owner_only"}<li><a href="{seourl rewrite="group/add/video/`$smarty.request.urlkey`/`$answers[0].GID`" url="add_video.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$answers[0].GID`"}">{translate item='global.add_videos'}</a></li>{/if}
+<li><a href="{$baseurl}/invite_members.php?urlkey={$smarty.request.urlkey}&amp;gid={$answers[0].GID}">{translate item='global.invite_members'}</a></li>
+{else}
+<li><a href="{seourl rewrite="group/`$smarty.request.urlkey`/`$smarty.request.gid`" url="groups_home.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$smarty.request.gid`"}">{translate item='global.group_home'}</a></li>
+<li><a href="{seourl rewrite="group/`$smarty.request.urlkey`/videos/`$smarty.request.gid`" url="gvideos.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$smarty.request.gid`"}">{translate item='global.videos'}</a></li>
+<li><a href="{seourl rewrite="group/`$smarty.request.urlkey`/members/`$smarty.request.gid`" url="gmembers.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$smarty.request.gid`"}">{translate item='global.group_members'}</a></li>
+{insert name=getfield assign=owner_id field='OID' table='group_own' qfield=GID qvalue=$smarty.request.gid}{if $smarty.session.UID eq $owner_id and $gupload eq "owner_only"}|<a href="{seourl rewrite="group/add/video/`$smarty.request.urlkey`/`$smarty.request.gid`" url="add_video.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$smarty.request.gid`"}">{translate item='global.add_videos'}</a></li>{/if}
+{if $gupload ne "owner_only"}<li><a href="{seourl rewrite="group/add/video/`$smarty.request.urlkey`/`$smarty.request.gid`" url="add_video.php?urlkey=`$smarty.request.urlkey`&amp;gid=`$smarty.request.gid`"}">{translate item='global.add_videos'}</a></li>{/if}
+<li><a href="{$baseurl}/invite_members.php?urlkey={$smarty.request.urlkey}&amp;gid={$smarty.request.gid}">{translate item='global.invite_members'}</a></li>
+{/if} 

@@ -1,0 +1,2 @@
+        {if $errors }<div id="errorbox">{foreach from=$errors item=err}{$err}<br />{/foreach}</div>{/if}
+        {if $messages}<div id="messagebox">{foreach from=$messages item=msg}{$msg}<br />{/foreach}</div>{/if}

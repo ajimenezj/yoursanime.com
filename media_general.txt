@@ -1,0 +1,1 @@
+General;General_FileExtension=%FileExtension%\nGeneral_Duration=%Duration%\nGeneral_Format=%Format%\nGeneral_Format_Profile=%Format_Profile%\nGeneral_CodecID=%CodecID%

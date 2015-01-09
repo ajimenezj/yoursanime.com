@@ -1,0 +1,36 @@
+    <div id="leftnav">
+    <h2><img src="{$baseurl}/images/admin/icons/nuevo.png" align="absmiddle"> NuevoPlayer</h2>
+    <ul>
+        <li><a href="nuevo.php?m=player">Player Settings</a></li>
+	<li><a href="nuevo.php?m=embed">Embed Player Settings</a></li>
+	<li><a href="nuevo.php?m=custom">Custom player generator</a></li>
+	<li><a href="nuevo.php?m=limit">Watch Limit</a></li>
+
+    </ul>
+    <h2><img src="{$baseurl}/images/admin/icons/nuevo.png" align="absmiddle"> Premium Plugins</h2>
+    <ul>
+	<li><a {if $module eq 'peel'}class="curr" {/if}href="nuevo.php?m=peel">Peel effects</a></li>
+	<li><a {if $module eq 'peelnew'}class="curr" {/if}href="nuevo.php?m=peelnew">New Peel effect</a></li>
+    </ul>
+    <h2><img src="{$baseurl}/images/admin/icons/nuevo.png" align="absmiddle"> Overlay Ads</h2>
+    <ul>
+	<li><a href="nuevo.php?m=overlay">List overlay ads</a></li>
+	<li><a href="nuevo.php?m=overlaynew">Create overlay ad</a></li>
+    </ul>
+    <h2><img src="{$baseurl}/images/admin/icons/nuevo.png" align="absmiddle"> Player Messages</h2>
+    <ul>
+	<li><a href="nuevo.php?m=labels">List Player messages</a></li>
+	<li><a href="nuevo.php?m=labelnew">Create new message</a></li>
+    </ul>
+    <h2><img src="{$baseurl}/images/admin/icons/nuevo.png" align="absmiddle"> Random Midroll Ads</h2>
+    <ul>
+	<li><a href="nuevo.php?m=midrollsettings">Midroll ads settings</a></li>
+	<li><a href="nuevo.php?m=midroll">List midroll ads</a></li>
+	<li><a href="nuevo.php?m=midrollnew">Create midroll ad</a></li>
+    </ul>
+    <h2><img src="{$baseurl}/images/admin/icons/nuevo.png" align="absmiddle"> Random Preroll/Postroll</h2>
+    <ul>
+	<li><a href="nuevo.php?m=preroll">List preroll/postroll ads</a></li>
+	<li><a href="nuevo.php?m=prerollnew">Create preroll/postrolll ad</a></li>
+    </ul>
+    </div>

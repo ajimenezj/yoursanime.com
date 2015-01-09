@@ -1,0 +1,10 @@
+{strip}
+   <script type="text/javascript" id="nuevo" src="{$baseurl}/nuevo/nuevo.js" charset="utf-8"></script>
+   <div id="nuevoplayer"></div>
+   <script type="text/javascript">
+      var cnf='{$baseurl}/nuevo/config.php?key={$vinfo[0].vkey}'; var w='{$player_width}'; var h='{$player_height}'; var wm='{$nuevo.wmode}'; var bg='{$nuevo.backcolor}'; var skn='{$nuevo.html5skin}';
+      {literal}
+      nvplayer.start( {id:'nuevoplayer',config: cnf,width:w,height:h,wmode:wm,bgcolor:bg,skin:skn}); 
+      {/literal}
+  </script>
+{/strip}

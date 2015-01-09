@@ -1,0 +1,137 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^mobile mobile.php [L]
+RewriteRule ^rss/new/?$        rss.php?type=new [L]
+RewriteRule ^rss/comments/?$   rss.php?type=comments [L]
+RewriteRule ^rss/views/?$      rss.php?type=views [L]
+RewriteRule ^rss$	         rss_feeds.php [L]
+
+RewriteRule ^categories/([0-9]+)/([0-9]+)/(.*) channel_detail.php?chid=$1&page=$2 [L]
+RewriteRule ^categories/([0-9]+)/(.*) channel_detail.php?chid=$1 [L]
+
+RewriteRule ^video/edit/([0-9]+)$ my_vdo_edit.php?VID=$1 [L]
+RewriteRule ^video/([0-9]+)/(.*)/([a-z]+)/(.*) view_video.php?vid=$1&action=$2&%{QUERY_STRING} [L]
+RewriteRule ^video/([a-z][a-z])/([0-9]+)/(.*) view_video.php?vid=$2&category=$1%{QUERY_STRING} [L]
+RewriteRule ^video/([a-z][a-z])/([0-9]+)/([0-9]+)/(.*) view_video.php?vid=$3&category=$1&page=$2%{QUERY_STRING} [L]
+RewriteRule ^video/basic/([a-z][a-z])/([0-9]+)/([0-9]+) view_video.php?vid=$3&category=$1&page=$2&viewtype=basic%{QUERY_STRING} [L]
+RewriteRule ^video/basic/([a-z][a-z])/([0-9]+)/([0-9]+)/(.*) view_video.php?vid=$3&category=$1&page=$2&viewtype=basic%{QUERY_STRING} [L]
+RewriteRule ^video/detailed/([a-z][a-z])/([0-9]+)/([0-9]+) view_video.php?vid=$3&category=$1&page=$2&viewtype=detailed%{QUERY_STRING} [L]
+RewriteRule ^video/detailed/([a-z][a-z])/([0-9]+)/([0-9]+)/(.*) view_video.php?vid=$3&category=$1&page=$2&viewtype=detailed%{QUERY_STRING} [L]
+RewriteRule ^video/([0-9]+)/?(.*) view_video.php?vid=$1&%{QUERY_STRING} [L]
+RewriteRule ^video2/([0-9]+)/?(.*) view_video2.php?vid=$1&%{QUERY_STRING} [L]
+
+
+RewriteRule ^videos/basic/([a-z][a-z])/([0-9]+)$ video.php?viewtype=basic&page=$2&category=$1 [L]
+RewriteRule ^videos/detailed/([a-z][a-z])/([0-9]+)$ video.php?viewtype=detailed&page=$2&category=$1 [L]
+RewriteRule ^videos/basic/([0-9]+)$ video.php?viewtype=basic&page=$1 [L]
+RewriteRule ^videos/detailed/([0-9]+)$ video.php?viewtype=detailed&page=$1 [L]
+RewriteRule ^videos/basic/([a-z][a-z])$ video.php?viewtype=basic&category=$1 [L]
+RewriteRule ^videos/detailed/([a-z][a-z])$ video.php?viewtype=detailed&category=$1 [L]
+
+RewriteRule ^users/([A-Za-z0-9_\-]+)$ uprofile.php?username=$1 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/subscribe/on/([a-z])$ uprofile.php?subscribe=on&username=$1&info=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/subscribe/off/([a-z])$ uprofile.php?subscribe=off&username=$1&info=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/videos/public/([0-9]+)$ uvideos.php?username=$1&type=public&page=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/videos/private/([0-9]+)$ uvideos.php?username=$1&type=private&page=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/videos/public$ uvideos.php?username=$1&type=public [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/videos/private$ uvideos.php?username=$1&type=private [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/favorites/([0-9]+)$ ufavour.php?username=$1&page=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/favorites ufavour.php?username=$1 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/friends/([0-9]+)$ ufriends.php?username=$1&page$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/friends ufriends.php?username=$1 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/playlists/([0-9]+)$ uplaylist.php?username=$1&page=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/playlists uplaylist.php?username=$1 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/groups/([0-9]+)$ ugroups.php?username=$1&page=$2 [L]
+RewriteRule ^users/([A-Za-z0-9_\-]+)/groups$ ugroups.php?username=$1 [L]
+
+RewriteRule ^group/edit/([A-Za-z0-9_\-]+)$ my_group_edit.php?urlkey=$1 [L]
+RewriteRule ^group/add/video/([A-Za-z0-9_\-]+)/([0-9]+)$ add_video.php?urlkey=$1&gid=$2 [L]
+RewriteRule ^group/add/video/([A-Za-z0-9_\-]+)/([0-9]+)/([0-9]+)$ add_video.php?urlkey=$1&gid=$2&page=$3 [L]
+RewriteRule ^group/add/favorite/([A-Za-z0-9_\-]+)/([0-9]+)$ add_video.php?urlkey=$1&gid=$2 [L]
+RewriteRule ^group/add/favorite/([A-Za-z0-9_\-]+)/([0-9]+)/([0-9]+)$ add_video.php?urlkey=$1&gid=$2&page=$3 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/videos/([0-9]+)/([0-9]+)$ gvideos.php?urlkey=$1&gid=$2&page=$3 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/videos/([0-9]+)$ gvideos.php?urlkey=$1&gid=$2 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/members/([0-9]+)/([0-9]+)$ gmembers.php?urlkey=$1&gid=$2&page=$3 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/members/([0-9]+)$ gmembers.php?urlkey=$1&gid=$2 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/posts/([0-9]+)/([0-9]+)$ group_posts.php?urlkey=$1&gid=$2&tid=$3 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/([0-9]+)$ groups_home.php?urlkey=$1&page=$2 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)$ groups_home.php?urlkey=$1 [L]
+RewriteRule ^group/([A-Za-z0-9_\-]+)/?(.*)$ groups_home.php?urlkey=$1&%{QUERY_STRING} [L]
+
+RewriteRule ^usergroups/([a-z][a-z])/([0-9]+)$ groups.php?b=$1&page=$2 [L]
+RewriteRule ^usergroups/([a-z][a-z])$ groups.php?b=$1 [L]
+RewriteRule ^usergroups/([0-9]+)$ groups.php?page=$1 [L]
+RewriteRule ^usergroups$ groups.php [L]
+RewriteRule ^create/group$ create_group.php [L]
+
+RewriteRule ^tags$ more_tags.php [L]
+RewriteRule ^tags/([0-9]+)/(.*) search_result.php?search_id=$2&page=$1 [L]
+RewriteRule ^tags/(.*) search_result.php?search_id=$1 [L]
+RewriteRule ^related/([A-Za-z0-9_\-]+)$ search_result.php?search_type=related&search_key=$1 [L]
+RewriteRule ^search/([0-9]+)/?(.*)$ search_result.php?page=$1&%{QUERY_STRING} [L]
+RewriteRule ^search/basic/?(.*)$ search_result.php?viewtype=basic&%{QUERY_STRING} [L]
+RewriteRule ^search/detailed/?(.*)$ search_result.php?viewtype=detailed&%{QUERY_STRING} [L]
+RewriteRule ^search/(.*)$ search_result.php?%{QUERY_STRING} [L]
+RewriteRule ^search2/detailed/?(.*)$ search_result2.php?viewtype=detailed&%{QUERY_STRING} [L]
+RewriteRule ^search2/(.*)$ search_result2.php?%{QUERY_STRING} [L]
+
+
+RewriteRule ^community/avatar/([0-9]+)/?$ members.php?type=avatar&page=$1 [L]
+RewriteRule ^community/([0-9]+)/?$ members.php?page=$1 [L]
+RewriteRule ^community/avatar/?$ members.php?type=avatar [L]
+RewriteRule ^community$ members.php [L]
+
+RewriteRule ^uploadsuccess/([a-z0-9]+)$ upload_success.php?viewkey=$1&upload=yes [L]
+RewriteRule ^upload/?$ upload.php?%{QUERY_STRING} [L]
+
+RewriteRule ^userfriends/favorites/([1-9]+)$ ffavour.php&page=$1 [L]
+RewriteRule ^userfriends/favorites$ ffavour.php [L]
+RewriteRule ^userfriends/videos/([1-9]+)$ fvideos.php&page=$1 [L]
+RewriteRule ^userfriends/videos$ fvideos.php [L]
+RewriteRule ^userfriends/([a-zA-z]+)/([a-z]+)/([1-9]+)$ friends.php?view=$1&sort=$2&page=$3 [L]
+RewriteRule ^userfriends/([a-z]+)/([1-9]+)$ friends.php?sort=$1&page=$2 [L]
+RewriteRule ^userfriends$ friends.php [L]
+
+RewriteRule ^videos$ video.php?next=watch [L]
+RewriteRule ^categories$ channels.php [L]
+RewriteRule ^contact$ contact.php [L]
+RewriteRule ^signup$ signup.php [L]
+RewriteRule ^login$ login.php [L]
+RewriteRule ^logout$ logout.php [L]
+RewriteRule ^help$ help.php [L]
+RewriteRule ^invite/([0-9]+)/?(.*)$ invite_friends.php?UID=$1&%{QUERY_STRING} [L]
+RewriteRule ^invite/([0-9]+)$ invite_friends.php?UID=$1 [L]
+RewriteRule ^invite$ invite_friends.php [L]
+RewriteRule ^advertise$ dev.php [L]
+RewriteRule ^terms$ terms.php [L]
+RewriteRule ^privacy$ privacy.php [L]
+RewriteRule ^about$ about.php [L]
+
+RewriteRule ^my_profile$ my_profile.php [L]
+RewriteRule ^my_videos/([0-9]+)/?$ my_video.php?page=$1 [L]
+RewriteRule ^my_videos$ my_video.php [L]
+RewriteRule ^my_favorites/([0-9]+)$ my_favour.php?page=$1 [L]
+RewriteRule ^my_favorites$ my_favour.php [L]
+RewriteRule ^my_playlists/([0-9]+)$ my_playlist.php?page=$1 [L]
+RewriteRule ^my_playlists$ my_playlist.php [L]
+RewriteRule ^my_group/([0-9]+)$ mygroup.php?page=$1 [L]
+RewriteRule ^my_group$ mygroup.php [L]
+
+RewriteRule ^recoverpassword/?$ recoverpass.php [L]
+
+RewriteRule ^compose/([A-Za-z0-9_\-]+)$ compose.php?receiver=$1 [L]
+RewriteRule ^compose$ compose.php [L]
+RewriteRule ^mail/outbox/([0-9]+)$ outbox.php?page=$1 [L]
+RewriteRule ^mail/outbox$ outbox.php [L]
+RewriteRule ^mail/inbox/([0-9]+)$ inbox.php?page=$1 [L]
+RewriteRule ^mail/inbox$ inbox.php [L]
+</IfModule>
+
+<IfModule mod_security.c>
+   SecFilterEngine Off
+   SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_gzip.c>
+mod_gzip_on No
+</IfModule>
