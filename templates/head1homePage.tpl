@@ -97,10 +97,9 @@ $conn->execute("SET NAMES 'utf8'");
 		 <li><a href="{seourl rewrite='categories' url='channels.php'}">{translate item='menu.channels'}</a></li>
 		 <li><a href="{seourl rewrite='videos' url='video.php?next=watch'}">{translate item='menu.videos'}</a></li>
 		 <li><a href="{seourl rewrite='community' url='members.php'}">{translate item='menu.community'}</a></li>
-		 <li><a href='#'>Forums</a></li>
 		 <li><a href="{seourl rewrite='usergroups' url='groups.php'}" {$groupcurrent}>{translate item='menu.groups'}</a></li>
 		 <li><a href="{seourl rewrite='userfriends' url='friends.php'}">{translate item='menu.friends'}</a></li>
-		 <li><a href="{seourl rewrite='contact' url='contact.php'}">Contact Us</a></li>
+		 <li><a href="{seourl rewrite='contact' url='contact.php'}">Cont&aacute;ctanos</a></li>
 		</ul>
 		<ul id="rightNavigation">
                  {if $smarty.session.USERNAME ne ''}

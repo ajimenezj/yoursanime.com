@@ -21,7 +21,7 @@ STemplate::assign('err',$err);
 
 STemplate::display('head1.tpl');
 STemplate::display('err_msg.tpl');
-STemplate::display('privacy.tpl');
+STemplate::display('contact.tpl');
 STemplate::display('footer.tpl');
 STemplate::gzip_encode();
 ?>
